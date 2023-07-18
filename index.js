@@ -43,6 +43,7 @@ class myClient {
         this.robotDog.setMode(Go1Mode.standUp);
         await this.robotDog.wait(2000);
       }
+      await this.robotDog.wait(1000);
       
     }
 }
