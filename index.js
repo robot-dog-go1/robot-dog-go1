@@ -26,12 +26,35 @@ class myClient {
 
     async onMessage() {
       //WALKING
-      await this.robotDog.wait(1000);
-      this.robotDog.setMode(Go1Mode.walk);                                                                                                                                                                                                                                      
-      await this.robotDog.goForward(0.1, 2000);
-      await this.robotDog.goBackward(0.05, 1000);
-      await this.robotDog.goLeft(0.25, 1000);
-      await this.robotDog.goRight(0.05, 500);
+      for (let i = 0; i < 2; i++) {
+        await this.robotDog.wait(1000);
+        this.robotDog.setMode(Go1Mode.walk);
+        await this.robotDog.goForward(0.10000000000000000, 100);
+      }
+      
+      for (let i = 0; i < 2; i++) {
+        await this.robotDog.wait(1000);
+        this.robotDog.setMode(Go1Mode.walk);
+        await this.robotDog.goBackward(0.10000000000000000, 100);
+      }
+      
+      for (let i = 0; i < 2; i++) {
+        await this.robotDog.wait(1000);
+        this.robotDog.setMode(Go1Mode.walk);
+        await this.robotDog.goLeft(0.10000000000000000, 100);
+      }
+
+      for (let i = 0; i < 2; i++) {
+        await this.robotDog.wait(1000);
+        this.robotDog.setMode(Go1Mode.walk);
+        await this.robotDog.goRight(0.10000000000000000, 100);
+      }
+
+      for (let i = 0; i < 2; i++) {
+        await this.robotDog.wait(1000);
+        this.robotDog.setMode(Go1Mode.walk);
+        await this.robotDog.goLeft(0.10000000000000000, 100);
+      }
       //TURNING
       await this.robotDog.wait(1000);
       await this.robotDog.turnLeft(0.90, 1000);
@@ -43,8 +66,8 @@ class myClient {
         this.robotDog.setMode(Go1Mode.standUp);
         await this.robotDog.wait(2000);
       }
-      await this.robotDog.wait(1000);
-      
+      //WALKING IN ANOTHER WAY
+
     }
 }
 
