@@ -23,42 +23,46 @@ class myClient {
       }
     }
     
-
+    
     async onMessage() {
       //WALKING
+      const SLOW_SPEED = 0.10000000000000000;
+      const MED_SPEED = 0.50000000000000000;
+      const FAST_SPEED = 0.90000000000000000;
+      
       for (let i = 0; i < 2; i++) {
         await this.robotDog.wait(1000);
         this.robotDog.setMode(Go1Mode.walk);
-        await this.robotDog.goForward(0.10000000000000000, 100);
+        await this.robotDog.goForward(SLOW_SPEED, 100);
       }
       
       for (let i = 0; i < 2; i++) {
         await this.robotDog.wait(1000);
         this.robotDog.setMode(Go1Mode.walk);
-        await this.robotDog.goBackward(0.10000000000000000, 100);
+        await this.robotDog.goBackward(SLOW_SPEED, 100);
       }
       
       for (let i = 0; i < 2; i++) {
         await this.robotDog.wait(1000);
         this.robotDog.setMode(Go1Mode.walk);
-        await this.robotDog.goLeft(0.10000000000000000, 100);
+        await this.robotDog.goLeft(SLOW_SPEED, 100);
       }
 
       for (let i = 0; i < 2; i++) {
         await this.robotDog.wait(1000);
         this.robotDog.setMode(Go1Mode.walk);
-        await this.robotDog.goRight(0.10000000000000000, 100);
+        await this.robotDog.goRight(SLOW_SPEED, 100);
       }
 
       for (let i = 0; i < 2; i++) {
         await this.robotDog.wait(1000);
         this.robotDog.setMode(Go1Mode.walk);
-        await this.robotDog.goLeft(0.10000000000000000, 100);
+        await this.robotDog.goLeft(SLOW_SPEED, 100);
       }
       //TURNING
       await this.robotDog.wait(1000);
-      await this.robotDog.turnLeft(0.90, 1000);
-      await this.robotDog.turnRight(0.50, 2000);
+      await this.robotDog.turnLeft(FAST_SPEED, 1000);
+      await this.robotDog.turnRight(MED_SPEED, 2000);
       //PUSH UPS
       for (let i = 0; i < 4; i++) {
         this.robotDog.setMode(Go1Mode.standDown);
@@ -67,12 +71,55 @@ class myClient {
         await this.robotDog.wait(2000);
       }
       //WALKING IN ANOTHER WAY
+      
+      for (let i = 0; i < 2; i++) {
+        await this.robotDog.wait(1000);
+        this.robotDog.setMode(Go1Mode.stand);
+        await this.robotDog.lookUp(FAST_SPEED, 100);
+      }
+      await this.robotDog.wait(5000);
+      for (let i = 0; i < 2; i++) {
+        await this.robotDog.wait(1000);
+        this.robotDog.setMode(Go1Mode.stand);
+        await this.robotDog.lookDown(FAST_SPEED, 100);
+      }
+      await this.robotDog.wait(5000);
+      for (let i = 0; i < 2; i++) {
+        await this.robotDog.wait(1000);
+        this.robotDog.setMode(Go1Mode.stand);
+        await this.robotDog.leanLeft(FAST_SPEED, 100);
+      }
+      await this.robotDog.wait(5000);
+      for (let i = 0; i < 2; i++) {
+        await this.robotDog.wait(1000);
+        this.robotDog.setMode(Go1Mode.stand);
+        await this.robotDog.leanRight(FAST_SPEED, 100);
+      }
+      await this.robotDog.wait(5000);
+      for (let i = 0; i < 2; i++) {
+        await this.robotDog.wait(1000);
+        this.robotDog.setMode(Go1Mode.stand);
+        await this.robotDog.twistLeft(MED_SPEED, 100);
+      }
+      await this.robotDog.wait(5000);
+      for (let i = 0; i < 2; i++) {
+        await this.robotDog.wait(1000);
+        this.robotDog.setMode(Go1Mode.stand);
+        await this.robotDog.twistRight(MED_SPEED, 100);
+      }
+      //BEGGING MODE
+      await this.robotDog.wait(1000);
+      for (let i = 0; i < 2; i++) {
+        await this.robotDog.wait(1000);
+        this.robotDog.setMode(Go1Mode.straightHand1);
+
+      }
 
     }
 }
 
 const client = new myClient();
-client.blinky()
+client.blinky();
 client.onMessage();
 
 
